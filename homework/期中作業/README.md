@@ -1,40 +1,112 @@
-第 1 章：Elementary Logic Gates（基礎邏輯閘）
-核心重點： 從 Nand 閘出發，構建所有基本邏輯閘。
+第1章：Elementary Logic Gates（基礎邏輯閘）
+作業連結： 第一章
 
-理解程度： 大部分理解。掌握了布林代數與晶片接腳 (Pins) 的對接邏輯。
+習題完成狀態： 原創（多工器後面的部分有在網路上找它的圖片，看是由哪些邏輯閘所組成的）
 
-實作清單： * 基礎閘：Not, And, Or, Xor, Mux, DMux
+理解程度： 大部分理解
 
-多位元與多路：Not16, And16, Or8Way, Mux4Way16, DMux8Way 等。
+使用到的邏輯閘
 
-實作筆記： Mux（多工器）的邏輯較為複雜，透過網路搜尋電路圖後，理解了它是如何利用 And 與 Or 來決定輸出路徑的。
+基礎邏輯閘：Not, And, Or, Xor, Mux, DMux。
 
-第 2 章：Boolean Arithmetic（布林運算）
-核心重點： 實作二進位加法與全書的核心——ALU（算術邏輯單元）。
+16 位元版本：Not16, And16, Or16, Mux16。
 
-理解程度： 部分理解。對 ALU 的控制位元（zx, nx 等）如何操作輸入值有了基本認識。
+多路/多位元邏輯閘：Or8Way, Mux4Way16, Mux8Way16, DMux4Way, DMux8Way。
 
-實作亮點： * ALU 實作： 採用兩階段開發。第一階段先專注於 out 的計算邏輯；第二階段再補全 zr（零標誌）與 ng（負標誌）的判斷。
+測試
 
-第 3 章：Memory（記憶體）
-核心重點： 引入時脈，利用 DFF 構建具備狀態保存能力的暫存器與 RAM。
+在 HardwareSimulator 上進行測試。
 
-理解程度： 部分理解。
+第2章：Boolean Arithmetic（布林運算）
+作業連結： 第二章
 
-學習體會： 理解了電腦如何從 1 位元 (Bit) 擴展到 16K 的記憶體空間。難點在於 PC (Program Counter) 的邏輯，需要同時處理增量、加載與歸零。
+習題完成狀態： 部分原創+部分ai（詢問ai該如何設計，程式部分自己嘗試）
 
-第 4 章：Machine Language（機器語言）
-核心重點： 學習 Hack 組合語言的 A-指令與 C-指令，並操作 I/O。
+理解程度： 部分原創+部分ai
 
-理解程度： 少部分理解（待加強）。
+使用到的邏輯閘
 
-工具應用： 使用 CPU Emulator 觀察暫存器變動。透過實作 Fill.asm（螢幕填充），理解了記憶體映射 (Memory-mapped I/O) 的運作原理。
+HalfAdder（半加器）、FullAdder（全加器）、Add16（16 位元加法器）、Inc16（16 位元增量器）。
 
-第 5 章：Computer（電腦架構）
-核心重點： 整合 CPU、Memory 與 ROM，完成 Hack 硬體平台。
+ALU（算術邏輯單元）：CPU 的運算核心。
 
-理解程度： 少部分理解（待加強）。
+ALU 實作階段
 
-架構解析： * CPU： 這是最複雜的零件，必須正確解碼 16 位元的指令，並分配給 ALU 運算。
+基礎階段：先實作計算 out 的功能，忽略 zr 和 ng。
 
-Computer： 作為頂層晶片，成功將程式（ROM）與硬體（CPU/RAM）連結。
+最終階段：在基礎版本上加入 zr 和 ng 的邏輯。
+
+AI對話網址：
+
+deepseek對話網址
+
+第3章：Memory
+作業連結： 第三章
+
+習題完成狀態： AI生成
+
+理解程度： 部分理解
+
+目標
+
+建構電腦的主記憶體（RAM），這是一個由可定址暫存器組成的序列，每個暫存器用來儲存 n 位元的值。
+
+基礎元件
+
+DFF (Data Flip-Flop)：原始元件，官方提供，不需自行實作。
+
+Bit：1 位元儲存單元。
+
+Register：16 位元暫存器。
+
+RAM 規模
+
+包含 RAM8、RAM64、RAM512、RAM4K、RAM16K，規模逐漸擴大。
+
+控制元件
+
+PC (Program Counter)：程式計數器，用於追蹤下一條指令的位址。
+
+AI對話網址：
+
+deepseek對話網址
+
+第4章：Machine Language（機器語言）
+作業連結： 第四章
+
+習題完成狀態： AI生成
+
+理解程度： 少部分理解
+
+目標
+
+在建構電腦硬體與組譯器之前，先熟悉 Hack 指令集與低階編程。
+
+工具
+
+組譯器 (Assembler)：將 .asm 原始碼轉換成 .hack 二進位代碼。
+
+CPU 模擬器 (CPU Emulator)：即時查看暫存器、記憶體與 PC 狀態，支援螢幕顯示與鍵盤輸入。
+
+AI對話網址：
+
+deepseek對話網址
+
+第5章：Computer
+作業連結： 第五章
+
+習題完成狀態： AI生成
+
+理解程度： 少部分理解
+
+實作目標
+
+Memory（記憶體）：將 RAM16K、螢幕（Screen）和鍵盤（Keyboard）整合進一個 32K 的定址空間。
+
+CPU（中央處理單元）：整合 ALU、暫存器、PC 以及邏輯閘。
+
+Computer（電腦頂層晶片）：最高層級晶片，由 CPU、Memory 和 ROM32K 組成。
+
+AI對話網址：
+
+deepseek對話網址
