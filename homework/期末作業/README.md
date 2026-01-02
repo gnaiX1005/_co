@@ -1,6 +1,6 @@
 # 期末作業（第6-12章習題）
 
-有複製https://github.com/sake92/nand2tetris/tree/master/projects和[AI](https://github.com/sake92/nand2tetris/tree/master/projects)輔助使用
+有複製https://github.com/sake92/nand2tetris/tree/master/projects 和 [AI](https://github.com/sake92/nand2tetris/tree/master/projects)輔助使用
 
 ###第 6 章：組譯器 (Assembler)
 這是硬體與軟體的第一道橋樑。學習者需編寫一個組譯器，將 Hack 組合語言（人類可讀）翻譯成 二進制機器碼（硬體可讀）。
@@ -39,3 +39,4 @@ Screen & Output：實現繪製直線、圓形及文字顯示。
 Math：在硬體不支援乘除法的情況下，用演算法實現乘法、除法與開根號。
 
 Keyboard：讀取使用者輸入。
+
