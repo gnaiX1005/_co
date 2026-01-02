@@ -1,6 +1,6 @@
 # Nand2Tetris 期末專案實作說明 (Project 6-12)
 
-本專案實作了從組譯器、虛擬機器、編譯器到作業系統的完整軟體棧。實作過程中參考了 [sake92/nand2tetris](https://github.com/sake92/nand2tetris/tree/master/projects) 資源並輔以 AI 工具進行邏輯優化。
+我有複製[sake92/nand2tetris](https://github.com/sake92/nand2tetris/tree/master/projects) 的資源並使用[AI](https://gemini.google.com/share/ef4c4f6dceee)輔助
 
 ---
 
@@ -40,6 +40,7 @@
 
 ## 實作心得
 透過從第 6 章到第 12 章的過程，我完整走過了從高階語言、編譯、虛擬機器執行到最後作業系統資源管理的整個軟體開發路徑，深刻理解了現代計算機科學的層次與抽象化。
+
 
 
 
